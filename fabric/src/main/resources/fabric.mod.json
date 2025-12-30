@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${modId}",
+  "version": "${modVersion}",
+  "name": "${modName}",
+  "description": "${modDescription}",
+  "authors": [
+    "${modAuthor}"
+  ],
+  "license": "${modLicense}",
+  "icon": "${modId}.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.rcubedev.riptidefix.fabric.RiptideFixFabric"
+    ],
+    "client": [
+      "com.github.rcubedev.riptidefix.fabric.client.RiptideFixClientFabric"
+    ]
+  },
+  "mixins": [
+    "${modId}.mixins.json",
+    "${modId}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabricLoaderVersion}",
+    "fabric-api": "*",
+    "minecraft": "${minecraftVersion}",
+    "java": ">=${javaVersion}"
+  }
+}
