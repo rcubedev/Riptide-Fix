@@ -19,12 +19,10 @@ public class RiptideFix {
 
     public static void configure(ServerPacketContext context, Consumer<RiptideFixTask> addTask) {
         if (!context.hasChannel().test(EnableRiptideFixPayload.ID)) return;
-        RiptideFixConstants.LOG.info("[SERVER] Sending Riptide Fix enable packet to client.");
         addTask.accept(new RiptideFixTask(new EnableRiptideFixPayload(PacketConstants.PROTOCOL_VERSION, true)));
     }
 
     public static void receiveAffirm(AffirmRiptideFixPayload payload, ServerPacketContext context) {
-        RiptideFixConstants.LOG.info("[SERVER] Received riptide fix affirm packet from client. Enabled: {}", payload.enabled());
         context.completeTask().accept(RiptideFixTask.TYPE);
     }
 
